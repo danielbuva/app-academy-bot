@@ -2,8 +2,6 @@
 
 ## Features
 
-### Built-In Bot Features:
-
 - scheduled check in times.
 
 ## Commands
@@ -39,4 +37,5 @@ A `/user` command makes the bot reply with This command was run by <username>, w
 3. Install packages.
    - Navigate into the downloaded source files and type `npm install`.
 
-   enjoy (～￣ ▽ ￣)～
+
+enjoy (～￣ ▽ ￣)～
