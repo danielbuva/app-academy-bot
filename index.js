@@ -17,8 +17,6 @@ client.on(Events.InteractionCreate, (interaction) => {
   interactions(interaction, client);
 });
 
-client.on(Events.ClientReady, () => {
-  scheduleAction(client);
-});
+client.on(Events.ClientReady, scheduleAction);
 
 client.login(TOKEN);

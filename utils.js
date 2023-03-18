@@ -1,40 +1,37 @@
 const cron = require("node-cron");
 const path = require("node:path");
 const fs = require("node:fs");
+const { WebhookClient } = require("discord.js");
+const WEBHOOK_URL = process.env.WEBHOOK_URL;
 
-const GUILD_ID = process.env.GUILD_ID;
-const CHECK_IN_CHANNEL_ID = process.env.CHECK_IN_CHANNEL_ID;
+const webhook = new WebhookClient(WEBHOOK_URL, {
+  username: "AA bot",
+});
 
-function sendReminders(channel) {
-  channel.send("check in ~");
+function sendReminders() {
+  webhook.send("check in ~");
 }
 
-function clearReminders(channel) {
-  channel
-    .bulkDelete(100)
-    .then(() => {
-      console.log(`All messages deleted from channel ${channel.name}.`);
+function clearReminders() {
+  webhook
+    .fetchMessages({ limit: 100 })
+    .then((messages) => {
+      webhook.bulkDelete(messages);
+      console.log(`All messages deleted from webhook ${webhook.name}.`);
     })
     .catch((error) => {
       console.error(
-        `Error deleting messages from channel ${channel.name}: ${error}`
+        `Error deleting messages from webhook ${webhook.name}: ${error}`
       );
     });
 }
 
-function scheduleAction(client) {
-  const guild = client.guilds.cache.get(GUILD_ID);
-  if (!guild) return console.log("no guild found");
-  const channel = guild.channels.cache.get(CHECK_IN_CHANNEL_ID);
-  if (!channel || channel.type !== 0) {
-    return console.log("no channel found");
-  }
-
-  cron.schedule("54 7,12,14 * * *", () => sendReminders(channel), {
+function scheduleAction() {
+  cron.schedule("54 7,12,14 * * *", () => sendReminders(), {
     timezone: "America/Los_Angeles",
   });
 
-  cron.schedule("0 0 * * *", () => clearReminders(channel), {
+  cron.schedule("0 0 * * *", () => clearReminders(), {
     timezone: "America/Los_Angeles",
   });
 }
