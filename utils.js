@@ -1,10 +1,13 @@
+require("dotenv").config();
 const cron = require("node-cron");
 const path = require("node:path");
 const fs = require("node:fs");
 const { WebhookClient } = require("discord.js");
 const WEBHOOK_URL = process.env.WEBHOOK_URL;
 
-const webhook = new WebhookClient(WEBHOOK_URL, {
+// console.log(process.env.WEBHOOK_URL);
+const webhook = new WebhookClient({
+  url: WEBHOOK_URL,
   username: "AA bot",
 });
 
