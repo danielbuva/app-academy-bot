@@ -30,12 +30,16 @@ function clearReminders() {
 }
 
 function scheduleAction() {
-  cron.schedule("54 7,12,14 * * *", () => sendReminders(), {
-    timezone: "America/Los_Angeles",
+  const timezone = "America/Los_Angeles";
+
+  // Schedule reminders for Monday to Friday at 7:54am, 12:24pm, and 2:54pm PST
+  cron.schedule("54 7,12,14 * * 1-5", () => sendReminders(), {
+    timezone,
   });
 
-  cron.schedule("0 0 * * *", () => clearReminders(), {
-    timezone: "America/Los_Angeles",
+  // Clear reminders at midnight PST Monday to Friday
+  cron.schedule("0 0 * * 1-5", () => clearReminders(), {
+    timezone,
   });
 }
 
