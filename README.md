@@ -2,27 +2,33 @@
 
 ## Features
 
-- scheduled check in times.
+- scheduled message for check in times
+
 
 ## Commands
 
 This bot has a few example commands which will be modified and added to.
 
+
 ### AAA Command
 
 A `/aaa` command makes the bot reply with aaaaaaaaaaaaaaaaa!
+
 
 ### PING Command
 
 A `/ping` command makes the bot reply with pong!
 
+
 ### SERVER Command
 
 A `/server` command makes the bot reply with This server is <guild_name> and has <member_count> members.
 
+
 ### USER Command
 
 A `/user` command makes the bot reply with This command was run by <username>, who joined on <joined_at>.
+
 
 ## Setup
 
@@ -36,6 +42,8 @@ A `/user` command makes the bot reply with This command was run by <username>, w
    - Add values for "TOKEN" (discord bot token), "CLIENT_ID" (application id), "GUILD_ID" (discord server id), and "CHECK_IN_CHANNEL_ID"
 3. Install packages.
    - Navigate into the downloaded source files and type `npm install`.
+   
+   
 
 
 enjoy (～￣ ▽ ￣)～
