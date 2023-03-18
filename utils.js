@@ -1,7 +1,9 @@
-const { GUILD_ID, CHECK_IN_CHANNEL_ID } = require("./config.json");
 const cron = require("node-cron");
 const path = require("node:path");
 const fs = require("node:fs");
+
+const GUILD_ID = process.env.GUILD_ID;
+const CHECK_IN_CHANNEL_ID = process.env.CHECK_IN_CHANNEL_ID;
 
 function sendReminders(channel) {
   channel.send("check in ~");

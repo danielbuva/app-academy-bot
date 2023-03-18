@@ -32,11 +32,11 @@ A `/user` command makes the bot reply with This command was run by <username>, w
    - You'll need to create a new bot in your [Discord Developer Portal](https://discord.com/developers/applications/).
      - See [here](https://www.writebots.com/discord-bot-token/) for detailed instructions.
      - At the end you should have a **bot token**.
-2. Create config files.
-   - Create a file named `config.json`.
+2. Create .env file.
+   - Create a file named `.env`.
    - If you're using Git, you should not commit this file and should ignore it via .gitignore.
-   - Add values for "token" (discord bot token), "clientId" (application id), "guildId" (discord server id), and "checkInChannelId"
+   - Add values for "TOKEN" (discord bot token), "CLIENT_ID" (application id), "GUILD_ID" (discord server id), and "CHECK_IN_CHANNEL_ID"
 3. Install packages.
    - Navigate into the downloaded source files and type `npm install`.
 
-   enjoy (～￣▽￣)～
+   enjoy (～￣ ▽ ￣)～
