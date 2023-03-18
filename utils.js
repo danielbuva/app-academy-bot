@@ -1,4 +1,4 @@
-const { guildId, checkInChannelId } = require("./config.json");
+const { GUILD_ID, CHECK_IN_CHANNEL_ID } = require("./config.json");
 const cron = require("node-cron");
 const path = require("node:path");
 const fs = require("node:fs");
@@ -21,9 +21,9 @@ function clearReminders(channel) {
 }
 
 function scheduleAction(client) {
-  const guild = client.guilds.cache.get(guildId);
+  const guild = client.guilds.cache.get(GUILD_ID);
   if (!guild) return console.log("no guild found");
-  const channel = guild.channels.cache.get(checkInChannelId);
+  const channel = guild.channels.cache.get(CHECK_IN_CHANNEL_ID);
   if (!channel || channel.type !== 0) {
     return console.log("no channel found");
   }
