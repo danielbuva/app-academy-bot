@@ -1,3 +1,11 @@
+const {
+  Client,
+  Collection,
+  Events,
+  GatewayIntentBits,
+} = require("discord.js");
+const { scheduleAction, setCommands, interactions } = require("./utils");
+require("dotenv").config();
 const express = require("express");
 const app = express();
 const port = process.env.PORT || 3000;
@@ -7,17 +15,8 @@ app.get("/", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`app listening at http://localhost:${port}`);
 });
-
-require("dotenv").config();
-const {
-  Client,
-  Collection,
-  Events,
-  GatewayIntentBits,
-} = require("discord.js");
-const { scheduleAction, setCommands, interactions } = require("./utils");
 
 const TOKEN = process.env.TOKEN;
 
