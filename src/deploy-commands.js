@@ -7,6 +7,9 @@ const CLIENT_ID = process.env.CLIENT_ID;
 const GUILD_ID = process.env.GUILD_ID;
 const TOKEN = process.env.TOKEN;
 
+console.log("debug test CLIENT_ID", process.env.CLIENT_ID);
+console.log("debug test GUILD_ID", process.env.GUILD_ID);
+
 const commands = [];
 // Grab all the command files from the commands directory you created earlier
 const commandsPath = path.join(__dirname, "commands");

@@ -8,6 +8,7 @@ const { scheduleAction, setCommands, interactions } = require("./utils");
 require("dotenv").config();
 
 const TOKEN = process.env.TOKEN;
+console.log("debug test TOKEN:", process.env.TOKEN);
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
