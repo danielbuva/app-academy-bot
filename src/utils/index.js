@@ -5,6 +5,9 @@ const fs = require("node:fs");
 const { WebhookClient } = require("discord.js");
 const WEBHOOK_URL = process.env.WEBHOOK_URL;
 
+console.log("debug test WEBHOOK_ID:", process.env.WEBHOOK_ID);
+console.log("debug test WEBHOOK_TOKEN:", process.env.WEBHOOK_TOKEN);
+
 // console.log(process.env.WEBHOOK_URL);
 const webhook = new WebhookClient({
   url: WEBHOOK_URL,
