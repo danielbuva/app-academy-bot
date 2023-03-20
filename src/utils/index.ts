@@ -38,8 +38,11 @@ export const scheduleAction = (channel: Channel) => {
   const timezone = "America/Los_Angeles";
   const textChannel = 0;
 
-  // Schedule reminders for Monday to Friday at 7:54am, 12:24pm, and 2:54pm PST
-  cron.schedule("54 7,12,14 * * 1-5", () => sendReminders(), {
+  // Schedule reminders for Monday to Friday at 7:54:45am, 12:24:45pm, and 2:54:45pm PST
+  cron.schedule("45 54 7,14 * * 1-5", () => sendReminders(), {
+    timezone,
+  });
+  cron.schedule("45 24 12 * * 1-5", () => sendReminders(), {
     timezone,
   });
 
