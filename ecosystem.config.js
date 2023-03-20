@@ -5,9 +5,11 @@ module.exports = {
       script: "src/index.js",
       env: {
         NODE_ENV: "production",
-        WEBHOOK_ID: "your-webhook-id",
-        WEBHOOK_TOKEN: "your-webhook-token",
-        // ... other environment variables
+        TOKEN: process.env.TOKEN,
+        CLIENT_ID: process.env.CLIENT_ID,
+        GUILD_ID: process.env.GUILD_ID,
+        CHECK_IN_CHANNEL_ID: process.env.CHECK_IN_CHANNEL_ID,
+        WEBHOOK_URL: process.env.WEBHOOK_URL,
       },
     },
   ],

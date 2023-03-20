@@ -1,17 +1,24 @@
 {
   "name": "app-academy-bot",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./prod/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node src"
+    "build": "tsc",
+    "start": "node -r dotenv/config ./prod/index.js",
+    "dev": "tsc && node -r dotenv/config ./prod/index.js"
   },
+  "author": "dani",
   "dependencies": {
     "discord.js": "^14.8.0",
-    "dotenv": "^16.0.3",
     "node-cron": "^3.0.2"
   },
   "devDependencies": {
-    "eslint": "^8.36.0"
+    "@types/dotenv": "^8.2.0",
+    "@types/node": "^18.15.3",
+    "@types/node-cron": "^3.0.7",
+    "dotenv": "^16.0.3",
+    "eslint": "^8.36.0",
+    "typescript": "^5.0.2"
   }
 }
