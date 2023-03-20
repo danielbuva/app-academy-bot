@@ -1,4 +1,5 @@
 node_modules/
+/prod/
 yarn.lock
 .env
 config.json
