@@ -12,22 +12,22 @@ This bot has a few example commands which will be modified and added to.
 
 ### AAA Command
 
-A `/aaa` command makes the bot reply with aaaaaaaaaaaaaaaaa!
+ `/aaa` command makes the bot reply with aaaaaaaaaaaaaaaaa!
 
 
 ### PING Command
 
-A `/ping` command makes the bot reply with pong!
+ `/ping` command makes the bot reply with pong!
 
 
 ### SERVER Command
 
-A `/server` command makes the bot reply with This server is <guild_name> and has <member_count> members.
+ `/server` command makes the bot reply with This server is <guild_name> and has <member_count> members.
 
 
 ### USER Command
 
-A `/user` command makes the bot reply with This command was run by <username>, who joined on <joined_at>.
+ `/user` command makes the bot reply with This command was run by <username>, who joined on <joined_at>.
 
 
 ## Setup
