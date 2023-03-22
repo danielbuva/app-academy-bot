@@ -12,7 +12,7 @@ if (!everyone) {
 const checkInLink = "\nhttps://progress.appacademy.io/me";
 
 const embeds = [
-  `check in                                 ☜(ﾟヮﾟ☜)${checkInLink}<@917335943692812289>`,
+  `check in                                 ☜(ﾟヮﾟ☜)${checkInLink}`,
   ` ヽ༼ຈل͜ຈ༽_•︻ ┻̿═━一 ----o check in${checkInLink}`,
 ];
 
