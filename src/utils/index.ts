@@ -1,34 +1,40 @@
 import {
   type Interaction,
   WebhookClient,
-  EmbedBuilder,
   Channel,
   TextChannel,
 } from "discord.js";
 import dotenv from "dotenv";
 import cron from "node-cron";
-import { embeds } from "./embeds";
+import { message } from "./embeds";
 import { CommandList } from "../commands/_CommandList";
 
 dotenv.config();
 const url = process.env.WEBHOOK_URL;
+// const testUrl = process.env.TEST_URL;
 console.log("debug test WEBHOOK_URL: ", url);
 if (!url) {
   throw new Error(
     "Cannot find webhook url. Make sure WEBHOOK_URL is set in env"
   );
 }
+// if (!testUrl) {
+//   throw new Error("Cannot find testUrl. Make sure TEST_URL is set in env");
+// }
 
 const checkInChannel = new WebhookClient({
   url,
 });
-
-const embedContent = embeds[0];
-const embed = new EmbedBuilder().setTitle(embedContent).setColor(0x00ffff);
+// const testChannel = new WebhookClient({
+//   url: testUrl,
+// });
 
 async function sendReminders() {
-  await checkInChannel.send({ embeds: [embed] });
+  await checkInChannel.send(message);
 }
+// async function testPing() {
+//   await testChannel.send(message);
+// }
 
 async function clearReminders(channel: TextChannel) {
   await channel.bulkDelete(69);
@@ -52,15 +58,12 @@ export const scheduleAction = (channel: Channel) => {
       timezone,
     });
   }
-};
 
-// // my test function (runs every second)
-// const timezone = "America/Los_Angeles";
-// export const scheduleAction = () => {
-//   cron.schedule("* * * * * *", () => sendReminders(), {
-//     timezone,
-//   });
-// };
+  // // my test function (runs every second)
+  // cron.schedule("* * * * * *", () => testPing(), {
+  //   timezone,
+  // });
+};
 
 export const onInteraction = async (interaction: Interaction) => {
   if (!interaction.isCommand()) return;
