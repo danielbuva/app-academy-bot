@@ -1,7 +1,9 @@
 import dotenv from "dotenv";
 import { Client } from "discord.js";
-import { IntentOptions } from "./config/IntentOptions";
+import { ReactionRole } from "discordjs-reaction-role";
+import { IntentOptions, PartialsOptions } from "./config/Options";
 import { onInteraction, scheduleAction } from "./utils";
+import { roleReactionConfig } from "./utils/content";
 
 dotenv.config();
 
@@ -22,10 +24,16 @@ if (!checkInChannelId)
   );
 
 (async () => {
-  const aaBot = new Client({ intents: IntentOptions });
+  const aaBot = new Client({
+    partials: PartialsOptions,
+    intents: IntentOptions,
+  });
+
+  const roleManager = new ReactionRole(aaBot, roleReactionConfig);
 
   aaBot.on("ready", () => {
-    const channel = aaBot.channels.cache.get(checkInChannelId);
+    console.log("~ bot is online ~");
+    const channel = aaBot.channels.cache.get("1088256933997334528");
     if (!channel) return console.log("no channel found");
     return scheduleAction(channel);
   });

@@ -6,35 +6,27 @@ import {
 } from "discord.js";
 import dotenv from "dotenv";
 import cron from "node-cron";
-import { message } from "./embeds";
+import { message } from "./content";
 import { CommandList } from "../commands/_CommandList";
 
 dotenv.config();
 const url = process.env.WEBHOOK_URL;
-// const testUrl = process.env.TEST_URL;
 console.log("debug test WEBHOOK_URL: ", url);
 if (!url) {
   throw new Error(
     "Cannot find webhook url. Make sure WEBHOOK_URL is set in env"
   );
 }
-// if (!testUrl) {
-//   throw new Error("Cannot find testUrl. Make sure TEST_URL is set in env");
-// }
 
 const checkInChannel = new WebhookClient({
   url,
 });
-// const testChannel = new WebhookClient({
-//   url: testUrl,
-// });
 
 async function sendReminders() {
   await checkInChannel.send(message);
 }
-// async function testPing() {
-//   await testChannel.send(message);
-// }
+
+const messageId = "1088269429659422822";
 
 async function clearReminders(channel: TextChannel) {
   await channel.bulkDelete(69);
@@ -58,11 +50,6 @@ export const scheduleAction = (channel: Channel) => {
       timezone,
     });
   }
-
-  // // my test function (runs every second)
-  // cron.schedule("* * * * * *", () => testPing(), {
-  //   timezone,
-  // });
 };
 
 export const onInteraction = async (interaction: Interaction) => {
