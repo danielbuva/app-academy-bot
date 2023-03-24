@@ -26,7 +26,7 @@ async function sendReminders() {
   await checkInChannel.send(message);
 }
 
-const messageId = "1088269429659422822";
+// const messageId = "1088269429659422822";
 
 async function clearReminders(channel: TextChannel) {
   await channel.bulkDelete(69);

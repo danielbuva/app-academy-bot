@@ -33,5 +33,4 @@ export const roleReactionConfig: ReactionRoleConfiguration[] = [
   { messageId, reaction: "🍇", roleId: "1087370731706400808" },
   { messageId, reaction: "💜", roleId: "1087370853571907594" },
   { messageId, reaction: "💗", roleId: "1087371629128056963" },
-  { messageId, reaction: "💙", roleId: "1087371956157956317" },
 ];
